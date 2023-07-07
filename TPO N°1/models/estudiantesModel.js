@@ -35,7 +35,7 @@ exports.updateStudent = async(student) => {
 
 // Obtener cursos de un estudiante
 exports.getCoursesOfStudent = async(id) => {
-    const [rows, fields] = await db.execute("select cursos.id,cursos.nombre from estudiantes_cursos inner join cursos on estudiantes_cursos.curso_id where estudiante_id = ?", [id])
+    const [rows, fields] = await db.execute("select cursos.id,cursos.nombre from estudiantes_cursos inner join cursos on cursos.id = estudiantes_cursos.curso_id where estudiante_id = ?", [id])
     return rows;
 }
 

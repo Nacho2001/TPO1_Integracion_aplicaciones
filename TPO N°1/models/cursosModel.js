@@ -35,7 +35,7 @@ exports.updateCourse = async(course) => {
 
 // Obtener los estudiantes de un curso
 exports.getStudentsCourse = async(id) => {
-    const [rows, fields] = await db.execute("select estudiantes.nombre from estudiantes_cursos where id_curso = ? inner join estudiantes on estudiantes_cursos.estudiantes_id = estudiantes.id",[id])
+    const [rows, fields] = await db.execute("select estudiantes.id,estudiantes.nombre from estudiantes_cursos inner join estudiantes on estudiantes_cursos.estudiante_id = estudiantes.id where curso_id = ?; ",[id])
     // La query solamente devolverá los nombres de los estudiantes del curso, utilizando un inner join en la tabla estudiantes_cursos
     return rows;
 }

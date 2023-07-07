@@ -9,12 +9,14 @@ class Server { // Nuevo server
         this.routes();
     }
     routes(){// Rutas definidas
-        // se dirige a el router de estudiantes mediante /estudiantes
+        // se dirige al router de estudiantes mediante /estudiantes
         this.app.use('/estudiantes', require('./../routes/estudiantesRoute'));
-        // se dirige a el router de profesores mediante /profesores
+        // se dirige al router de profesores mediante /profesores
         this.app.use('/profesores', require('./../routes/profesoresRoute'));
-        // se dirige a el router de cursos mediante /cursos
+        // se dirige al router de cursos mediante /cursos
         this.app.use('/cursos', require('./../routes/cursosRoute'));
+        // Se dirige al router de usuarios por /usuarios
+        this.app.use('/usuarios', require('./../routes/usuariosRoute'));
     }
     middlewares(){
         this.app.use(express.json());
